@@ -1,7 +1,16 @@
+---
+output: 
+  html_document: 
+    fig_caption: yes
+    keep_md: yes
+    toc: yes
+---
 # Reproducible Research: Peer assessment 1
 
-###### Github repository with RMarkdown source code: 
-==============================================================
+###### Github repository with RMarkdown source code: https://github.com/aruneral01/RepData_PeerAssessment1\
+[linked phrase](https://github.com/aruneral01/RepData_PeerAssessment1\)
+
+====================================================
 
 ## Introduction
 
@@ -9,13 +18,15 @@ This document presents the results of Assignment 1 of course [Reproducible Resea
 
 Through this report you can see that activities on weekdays mostly follow a work related routine, where we find some more intensity activity in little a free time that the employ can made some sport. 
 
+
 ### Load required libraries
 
 ```{r call_libraries}
 
-library(knitr)
+
 library(data.table)
 library(ggplot2) # we shall use ggplot2 for plotting figures
+library(knitr)
 
 ```
 
