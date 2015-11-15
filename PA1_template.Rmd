@@ -9,17 +9,11 @@ This document presents the results of Assignment 1 of course [Reproducible Resea
 
 Through this report you can see that activities on weekdays mostly follow a work related routine, where we find some more intensity activity in little a free time that the employ can made some sport. 
 
-
-```{r set_options}
-
-library(knitr)
-opts_chunk$set(echo = TRUE, results = 'hold')
-
-```
-
 ### Load required libraries
+
 ```{r call_libraries}
 
+library(knitr)
 library(data.table)
 library(ggplot2) # we shall use ggplot2 for plotting figures
 
@@ -31,9 +25,9 @@ library(ggplot2) # we shall use ggplot2 for plotting figures
 This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.  
 
 
-```{r read_data}
+```{r echo= TRUE,fig.keep='all', results='markup', warning=TRUE, message=TRUE}
 
-assign1data <- read.csv('./activity/activity.csv', header = TRUE, sep = ",",
+assign1data <- read.csv('activity.csv', header = TRUE, sep = ",",
                   colClasses = c("numeric", "character", "numeric"))
 ```
 
@@ -275,14 +269,14 @@ data_weekdays <- data_by_weekdays(assign1data_fill)
 
 Below you can see the panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends:
 
-```{r plot_weekdays}
+```{r }
 
-ggplot(data_weekdays, aes(x = interval, y= steps)) + 
+ggplot(data_weekdays, aes(x = interval, y = steps)) + 
         geom_line(color = "black") + 
-        facet_wrap( ~ dayofweek, nrow= 2, ncol= 1) +
-        labs(x = "Interval", y = "Number of steps") +
+        facet_wrap(~dayofweek, nrow = 2, ncol = 1) +
+        labs(title = " Steps per Day - Week end - Week Day", x = "Interval", y = "Number of steps") +
         theme_bw()
 
 ```
 
-We can see at the graph above that activity on the weekday has the greatest peak. But, we can see too that weekends activities has more peaks than weekday. This may be since activities on weekdays mostly follow routine, where we find some more intensity activity in little a free time. On the other hand, at weekend we can see better distribution of effort along the entire day.
+### We can see at the graph above that activity on the weekday has the greatest peak. But, we can see too that weekends activities has more peaks than weekday. This may be since activities on weekdays mostly follow routine, where we find some more intensity activity in little a free time. On the other hand, at weekend we can see better distribution of effort along the entire day.
