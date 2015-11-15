@@ -1,9 +1,9 @@
 # Reproducible Research: Peer assessment 1
 
-###### Github repository with RMarkdown source code: https://github.com/aruneral01/RepData_PeerAssessment1\
-[linked phrase](https://github.com/aruneral01/RepData_PeerAssessment1\)
+Github repository with RMarkdown source code: https://github.com/aruneral01/RepData_PeerAssessment1\
 
-====================================================
+##########################################################################################################'
+
 
 ## Introduction
 
@@ -33,7 +33,7 @@ assign1data <- read.csv('activity.csv', header = TRUE, sep = ",",
                   colClasses = c("numeric", "character", "numeric"))
 ```
 
-### Tidy the data or preprocess the data
+## Tidy the data or preprocess the data
 
 We convert the **date** field to `Date` class and **interval** field to `Factor` class.
 
@@ -201,7 +201,7 @@ sum(is.na(assign1data_fill$steps))
 ## [1] 0
 ```
 
-Looks like none
+#Looks like none
 
 ### C. Histogram - total number of steps taken every day
 

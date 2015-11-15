@@ -66,19 +66,20 @@ img {
 <li><a href="#introduction">Introduction</a><ul>
 <li><a href="#load-required-libraries">Load required libraries</a></li>
 </ul></li>
-<li><a href="#loading-and-preprocessing-the-data">Loading and preprocessing the data</a><ul>
+<li><a href="#loading-and-preprocessing-the-data">Loading and preprocessing the data</a></li>
 <li><a href="#tidy-the-data-or-preprocess-the-data">Tidy the data or preprocess the data</a></li>
-</ul></li>
 <li><a href="#what-is-mean-total-number-of-steps-taken-per-day">What is mean total number of steps taken per day?</a></li>
 <li><a href="#what-is-the-average-daily-activity-pattern">What is the average daily activity pattern?</a></li>
 <li><a href="#inputting-missing-values">Inputting missing values:</a><ul>
 <li><a href="#a.-total-number-of-missing-values">A. Total number of missing values:</a></li>
 <li><a href="#b.-strategy-for-filling-in-all-of-the-missing-values-in-the-dataset">B. Strategy for filling in all of the missing values in the dataset</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#looks-like-none">Looks like none</a><ul>
 <li><a href="#c.-histogram---total-number-of-steps-taken-every-day">C. Histogram - total number of steps taken every day</a></li>
 <li><a href="#report-the-mean-and-median-total-number-of-steps-taken-per-day.">Report the <strong>mean</strong> and <strong>median</strong> total number of steps taken per day.</a></li>
 <li><a href="#do-these-values-differ-from-the-estimates-from-the-first-part-of-the-assignment">Do these values differ from the estimates from the first part of the assignment?</a></li>
 <li><a href="#what-is-the-impact-of-imputing-missing-data-on-the-estimates-of-the-total-daily-number-of-steps">What is the impact of imputing missing data on the estimates of the total daily number of steps?</a></li>
-</ul></li>
 <li><a href="#are-there-differences-in-activity-patterns-between-weekdays-and-weekends">Are there differences in activity patterns between weekdays and weekends?</a><ul>
 <li><a href="#we-can-see-at-the-graph-above-that-activity-on-the-weekday-has-the-greatest-peak.-but-we-can-see-too-that-weekends-activities-has-more-peaks-than-weekday.-this-may-be-since-activities-on-weekdays-mostly-follow-routine-where-we-find-some-more-intensity-activity-in-little-a-free-time.-on-the-other-hand-at-weekend-we-can-see-better-distribution-of-effort-along-the-entire-day.">We can see at the graph above that activity on the weekday has the greatest peak. But, we can see too that weekends activities has more peaks than weekday. This may be since activities on weekdays mostly follow routine, where we find some more intensity activity in little a free time. On the other hand, at weekend we can see better distribution of effort along the entire day.</a></li>
 </ul></li>
@@ -88,10 +89,7 @@ img {
 
 <div id="reproducible-research-peer-assessment-1" class="section level1">
 <h1>Reproducible Research: Peer assessment 1</h1>
-<div id="github-repository-with-rmarkdown-source-code-httpsgithub.comaruneral01repdata_peerassessment1-linked-phrasehttpsgithub.comaruneral01repdata_peerassessment1" class="section level6">
-<h6>Github repository with RMarkdown source code: <a href="https://github.com/aruneral01/RepData_PeerAssessment1" class="uri">https://github.com/aruneral01/RepData_PeerAssessment1</a><br />[linked phrase](<a href="https://github.com/aruneral01/RepData_PeerAssessment1" class="uri">https://github.com/aruneral01/RepData_PeerAssessment1</a>)</h6>
-<p>====================================================</p>
-</div>
+<p>Github repository with RMarkdown source code: <a href="https://github.com/aruneral01/RepData_PeerAssessment1" class="uri">https://github.com/aruneral01/RepData_PeerAssessment1</a><br /> ##########################################################################################################’</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>This document presents the results of Assignment 1 of course <a href="https://class.coursera.org/repdata-004">Reproducible Research</a> on <a href="https://www.coursera.org">coursera</a>.</p>
@@ -108,8 +106,9 @@ library(knitr)</code></pre>
 <p>This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.</p>
 <pre class="r"><code>assign1data &lt;- read.csv('activity.csv', header = TRUE, sep = &quot;,&quot;,
                   colClasses = c(&quot;numeric&quot;, &quot;character&quot;, &quot;numeric&quot;))</code></pre>
-<div id="tidy-the-data-or-preprocess-the-data" class="section level3">
-<h3>Tidy the data or preprocess the data</h3>
+</div>
+<div id="tidy-the-data-or-preprocess-the-data" class="section level2">
+<h2>Tidy the data or preprocess the data</h2>
 <p>We convert the <strong>date</strong> field to <code>Date</code> class and <strong>interval</strong> field to <code>Factor</code> class.</p>
 <pre class="r"><code>assign1data$date &lt;- as.Date(assign1data$date, format = &quot;%Y-%m-%d&quot;)
 assign1data$interval &lt;- as.factor(assign1data$interval)</code></pre>
@@ -119,7 +118,6 @@ assign1data$interval &lt;- as.factor(assign1data$interval)</code></pre>
 ##  $ steps   : num  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : Date, format: &quot;2012-10-01&quot; &quot;2012-10-01&quot; ...
 ##  $ interval: Factor w/ 288 levels &quot;0&quot;,&quot;5&quot;,&quot;10&quot;,&quot;15&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-</div>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
 <h2>What is mean total number of steps taken per day?</h2>
@@ -207,8 +205,11 @@ str(assign1data_fill)</code></pre>
 <p>Look for any missing values remaining or not</p>
 <pre class="r"><code>sum(is.na(assign1data_fill$steps))</code></pre>
 <pre><code>## [1] 0</code></pre>
-<p>Looks like none</p>
 </div>
+</div>
+</div>
+<div id="looks-like-none" class="section level1">
+<h1>Looks like none</h1>
 <div id="c.-histogram---total-number-of-steps-taken-every-day" class="section level3">
 <h3>C. Histogram - total number of steps taken every day</h3>
 <p>Now let us plot a histogram plotted with a bin interval of 1000 steps, after filling missing values.</p>
@@ -252,7 +253,6 @@ steps_median_fill &lt;- median(fill_steps_day$steps, na.rm = TRUE)</code></pre>
 <h3>What is the impact of imputing missing data on the estimates of the total daily number of steps?</h3>
 <p>As you can see, comparing with the calculations done in the first section of this document, we observe that while the mean value remains unchanged, the median value has shifted and virtual matches to the mean.</p>
 <p>Since our data has shown a t-student distribution (see both histograms), it seems that the impact of imputing missing values has increase our peak, but it’s not affect negatively our predictions.</p>
-</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
